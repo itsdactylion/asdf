@@ -1,0 +1,35 @@
+#!/bin/bash : ile bash tabanını oluşturarak tanımlamış olmamız gerekiyor.
+
+echo "asd" : bash dosyamız program olarak çalıştırıldığında (cat ile vs yapılan okuma işlemidir) asd yazdıracaktı
+	./burak.bash : bash dosyamızı program olarak çalıştırır. 
+
+
+KALIP="Burak Yavuzkılıç" : bash'de kalıp isimli bir değişken oluşturup bykyı ona atadık.
+	echo $KALIP : KALIP değişkenine atadığımız değeri program yazdıracaktır.
+
+
+
+
+Degiskenlerin değerlerini 3 farklı şekilde yazırabiliriz.
+degisken1="shell yolu $SHELL"
+degisken2='shell yolu $SHELL'
+degisken3=`shell yolu $SHELL`
+
+belirlediğimiz değişkenleri echo $degisken1 ... şeklinde yazdırırsak;
+çift tırnakta : içeride değişken varsa çalıştırılıp tırnak içine yazılanla birlikte sonuç da verilecektir
+tek tırnakla : içeride değişken olsa dahi önemsemez sadece printler.
+ters tırnakla : yapıyı oldugu gibi çalıştıracaktır. Sadece kod yazılabilir (terminale komut yazıyormus gibi)
+
+
+bashte script oluşturma
+
+$0 : Scriptin yani bash dosyamızın adını görüntüler
+$1 $2 ... $9 : gönderdiğimiz argümanları görüntüler 9dan sonrası için ${11} şeklinde yazmamız gerek
+$# : Gönderilen argüman sayısını görüntüleyecektir
+$* : Tüm argümanları gösterecektir
+
+
+
+
+
+

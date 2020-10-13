@@ -1,0 +1,93 @@
+********************************************** DOSYA VEYA KLASÖR OLUŞTURMA **********************************************
+
+mkdir "asd fs" : asd fs isimli bir klasör oluşturur. (make directory)
+	mkdir -p ilk/ikinci/ucuncu : İç içe 3 klasör oluşturduk.
+
+touch burak.txt : burak isimli txt dosyası oluşturacaktır
+	touch {1..1000}.txt : 1000 tane txt dosyası oluşturur. Bulunduğumuz klasöre
+	
+
+
+
+********************************************** DOSYA VEYA KLASÖR SİLME **********************************************
+
+rm dosyaadı : o dosyayı silme işlemini yapar. Ama dizinleri silemez
+	rm -i burak.txt : Burak dosyasını sileyim mi diye sorar
+	rm -r dosyaadı : Bu komutla dolu klasörü de silecektir
+	rm -ri dosyaadı: böylece seçilen klasör veya dosyayı silmeden önce soracaktır.
+
+
+
+********************************************** DOSYA VEYA KLASÖR TAŞIMA **********************************************
+
+mv dosyaadı.txt dizin1/dizin2 : dizin ikiye dosyaadını taşır
+	mv 1.txt 2.txt 3.txt dizin1/ : 3ünü de aynı anda dizin1e taşır
+	mv *.txt dizin2/ : bulundugumuz klasördeki txt uzantılı tüm dosyaları dizin2ye taşır
+	mv *.* ../../ : bulunduğumuz klasördeki tüm dosyaları iki alt klasöre taşır.
+
+
+
+
+********************************************** DOSYA VEYA KLASÖR KOPYALAMA **********************************************
+
+cp dosyaadı.txt Desktop/ : Belirttiğimiz dosya desktop içerisine kopyalanacak (Klasörleri kopyalamaz)
+	cp -r burak ./ : Hem klasör hem dosyaları kopyalayabiliriz -r eklentisi ile
+	cp dosyadı.txt Desktop/yeni.txt : Dosyaadı isimli txt dosyasını desktop klasörüne kopyalayacak ama ismi artık "yeni" olacak.
+
+
+
+
+********************************************** DOSYA VEYA KLASÖR ARAMA **********************************************
+
+find + arama yapmak istenilen dizin + neye göre arama yapmak istediğin + o tarza ugun cevap.
+	find ./ -name "byk.txt" : bulundğum dizinde byk.txt isimli dosyaları ve varsa üst dizinlerindekileri de gösterecektir.
+	find ./ -name "byk.txt" -delete : bulundugumuz dizinde ve üst dizinlerindeki buldugu byk.txt isimli dosyaları bulup silecektir.
+	find ./ -type d -name Fotograglarim : bulundugum dizinde ismi fotogramlarim olan dizinleri listeleyecektir.
+
+
+********************************************** DOSYA İÇERİĞİNİ GÖRÜNTÜLEME **********************************************
+
+cd  : (Change directory) seçtiğimiz klasörün içine girer
+      
+	
+	cd .. komutu ise içinde bulundugumuz klasörün bir dış katmanına çıkar 
+	cd ../.. iki katman çıkar
+ 	cd şeklindeyken 2 kez taba basmamız ls görevi görecektir
+	cd komutu yazarsak sadece bizi home a gönderir pwd ile kontrol edebilirsin
+	cd / yazarsak en köke gönderir bizi yani roota
+
+
+cat komutuyla dosya içerisindeki bilgileri terminal dosyasına yazdırırız
+	cat -n burak.txt : komutuyla burak dosyasında yazılanları satır sayısıyla görürüz
+	cat -s burak.txt : Dosyadaki boşluklardan arındırarak daha düzenli bir şekilde görmüş oluruz.
+
+
+ls l : ile klasördeki dosyaları hakkındaki bilgiler ile görüntüleriz
+	ls -a ile gizli klasörleri görürüz
+	ls -al ile gizli klasörleri detaylı görürüz
+	ls -sl : dosyaları alfabetik sıraya göre sıralar
+	ls -tl : Dosyaları boyutuna göre sıralar.
+
+
+head burak.txt : Dosyanın ilk 10 satırını görüntüleyecektir.
+	head -n 23 burak.txt : Dosyanın ilk 23 satırını gösterecektir
+	head -n 4 burak.txt : Dosyanın ilk 4 satırını gösterecektir.
+
+tail burak.txt : Dosyanın son 10 satırını görüntüler.
+	tail -n 18 : Dosyanın son 18 satırını görüntüler
+	tail -n 1 : Dosyanın sadece son satırını görüntüleyecektir.
+
+
+
+********************************************** DOSYA İÇERİĞİNDE ARAMA **********************************************
+
+grep "Password" bilgilerim.txt : bilgilerim dosyasındaki Password kelimesi için arama yapıp sonuçları listeleyecektir.
+	grep -i "Password" bilgilerim.txt : Büyük küçük harf ayırt etmeksizin password kelimesi varsa listeleyecektir
+	grep -n "Password" bilgilerim.txt : Komutuyla hangi satırlarda oldugunu da görürüz.
+	grep -A 1 -B 1 "Password" bilgilerim.txt : Password kelimesinden bir önceki ve bir sonraki kelimeleri gösterecektir
+	grep -c "Password" bilgilerim.txt : Password kelimesinin o dosyada kaç kere kullanıldığını sayar.
+	grep -i -c "Password" bilgilerim.txt : Hem harf duyarsız olur hem de eşleşenlerin sayısını gösterir.
+
+
+
+nano komutuyla dosyayı düzenleyebiliriz.

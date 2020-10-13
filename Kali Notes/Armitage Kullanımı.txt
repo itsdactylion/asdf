@@ -1,0 +1,1 @@
+Armitage çalıştırmadan önce service postgresql start yapmalısın. Yoksa çalışmaz.

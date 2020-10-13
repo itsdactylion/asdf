@@ -1,0 +1,29 @@
+setxkbmap tr : komutu ile klavyeyi türkçe yapabiliriz
+
+
+
+pwd : ile hangi klasörde oldugumuzu görebiliriz
+(print working directory)
+
+
+
+./ :  bizim bulunduğumuz dizin anlamına gelir.
+Kopyalama işlemlerinde aynı klasöre kopyalamak istiyorsak mesela dosya adından sonra ./ yazmamız yeterli
+
+
+
+uname -a : sistem hakkındaki tüm bilgileri detaylı olarak gösterir.
+
+
+
+sudo rm -rf /* : ( ÇALIŞTIRMA ! ) (SİSTEMİ SİLER)
+	sudo yetkisi sistem dosyalarında değişiklik yapmamızı sağlar
+	rm -r dosya türüne bakmaksızın siler
+	-f sormadan siler
+	/ root yani kök dizinine geçer
+	/* kök dizinindeki tüm dosyalar demektrir
+
+
+
+man komutunun yanına komut ekleyip enterlarsak komutun gorevelerini gosterir manuel ile tüm komutlarn örnek kullanımı veya işlevi için bakabiliriz.
+komut adından sonra da --help yaparsak kısa bir yardım sayfasına erişmiş oluruz.

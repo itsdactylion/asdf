@@ -1,0 +1,63 @@
+
+****************************************** YETKİLERİ AYIRT ETME ******************************************
+
+
+---> Bulunduğumuz dizindeki dosyaları ls -l ile detaylı gördükten sonra ilk baştaki;
+	
+	-  rw- r-- r--      gibi veya    d rwx r-x r-x
+	Gibi bir gösterim ile karlşılaşırız.
+	İlk bastaki isaret - ise bu bir dosya oldugunu belirtir. d ise dizin.
+	r=read  w=write  x=execute(Çalıştırmak)
+
+	Ve bu gösterim dosya veya dizin olduğu belirtildikten sonra için direkt 3er kez yazdırılır. Çünkü;
+	1. Üçlü Kısım = User yetkilerini
+	2. Üçlü Kısım = Group yetkilerini
+	3. Üçlü Kısım = Herkesin yetkilerini görüntüler.
+
+	Yani -rw-r--r-- : Bir Dosyadır; Userın okuma yazma yetkisi var ama çalıştırma(X) yetkisi yok. Grubun ve herkesin ise sadece okuma izni var
+
+
+
+
+
+****************************************** YETKİLENDİRME ******************************************
+
+chmod komutuyla kullanıcıya gruba veya herkese izin yetki verebiliriz. (Change mode)
+	chmod u+x 1.txt : usera 1.txt dosyasını execute izni yani çalıştırma izni verdik
+	chmod u-x 1.txt : userdan o dosyayı çalıştırma iznini aldık
+	chmod o+x 1.txt : dosyayı herkes çalıştırabilir. (o:other)
+		Ama Bu yetkilendirme taktiği ile user,group ve other için aynı anda yetkilendirme yapılamaz.
+		
+
+
+Tek satırda tüm kullanıcıların yetkilerini düzenlemek için;
+	
+	okuma izni      -> 4
+	yazma izni      -> 2
+	çalıştırma izni -> 1
+	
+	   chmod 641 1.txt : userın okuma yazma izni var . Grupun sadece okuma izni var. Herkesin ise sadece çalıştırma izni var.
+	   chmod 640 1.txt : yaparsak herkese hiç izin vermeyiz
+	   chmod 777 1.txt : tüm izinleri kullanıcıya gruba ve herkese açar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

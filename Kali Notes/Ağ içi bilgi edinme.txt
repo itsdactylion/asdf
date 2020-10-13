@@ -1,0 +1,9 @@
+Bağlı olduğumuz modemdeki cihazların ip adresini görme
+
+-> netdiscover -r 192.168.0.0/24 : O ağdaki cihazlara atanan ip başlangıcı 192.168.0 şeklinde ise tüm cihazları listeler
+
+- nmap ile daha detaylı görüntülenebilir
+
+ARP ATTACK YAPIYORKEN
+
+echo 1 > /proc/sys/net/ipv4/ip_forward : komutu calistirmalidir. Aksi halde ip forward yapılmaz ve arp saldırılan kişinin interneti kesilir. 

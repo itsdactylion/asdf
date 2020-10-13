@@ -1,0 +1,45 @@
+ifconfig ile wlan0 da oldugumuzu kontrol ettikten sonra
+
+iwconfig : ifconfig'in wireless hali. Wireless ile ilgili tüm interfaceleri gösterir.
+
+
+
+********************** KABLOSUZ KARTI MONİTÖR MODA ALMA = airmon-ng **********************
+
+1 (Y) ) airmon-ng start wlan0 : Monitör moda alır.
+        airmon-ng stop wlan0mon : Monitör modu kapatıp tekrar manage moda geçiş yapar.
+	iwconfig wlan0 ile kontrol edilebilir.
+
+2) ifconfig wlan0 down
+   iwconfig wlan0 mode monitor
+   ifconfig wlan0 up
+
+
+
+********************** ÇEVREDEKİ MODEMLERİ GÖRÜNTÜLE = airodump-ng **********************
+
+1) Monitör moda geç airmın-ng ile
+
+2) airodump-ng wlan0mon : Çevredeki tüm modemleri görüntüler;
+	BSSID   : Modemin MAC adresini görüntüler
+	PWR     : Bana uzaklığı.(Sayı ne kadar 0a yaklaşırsa o kadar yakın)
+	Beacons : Sinyaller ile alakalı
+	Data    : Elimizde olan, kullanabileceğimiz datalar.
+	Channel : Modem üzerinden veri alma ve verme iletişimini yaptığımız kanal.
+	ENC     : Şifrelenme türü
+	ESSID   : Networkun adı
+
+********************** HEDEFLEDİĞİMİZ MODEME DAİR DETAYLI BİLGİLER = airodump-ng **********************
+ 
+1) Monitör modda olman gerek hala.
+2)  airodump-ng --channel 12 --bssid 40:30:20:10 --write test_dosyası wlan0mon (#Taslak)
+    test_dosyası'na biz aramayı durdurana kadar tüm dataları kaydetti
+	STATION  : Bağlı olan cihazların MAC adresleri
+	Frames   : Modemin yolladığı bilgi paketleri
+
+	Kaydedilen dosyalardan csv dosyası sonuç (özet) datası bulundurur.
+	Asıl bilgiler cap dosyasına kaydedilir. WireShark ile açılarak detaylıca görüntülenr.
+
+********************** DEAUTHENTICATION ATTACK = aireplay-ng **********************
+1) aireplay-ng --deauth <#packets> -a <AP(acces poins)> -c <client> interface
+	ex: aireplay-ng --deauth 1000 -a 10:20:30:40 -c 00:AA:11:BB wlan0mon

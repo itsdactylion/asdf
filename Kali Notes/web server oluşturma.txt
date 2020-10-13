@@ -1,0 +1,4 @@
+********************** WEB SERVER OLUŞTURMA **********************
+
+service apache2 start : web sunucumuzu oluşturur
+/var/www/html : Linux'ta web serverlarının kayıt edildiği yer.
