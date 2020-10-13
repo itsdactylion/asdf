@@ -1,0 +1,57 @@
+ifconfig = bilgisayarin baglanti bilgilerini gosterir.
+iwconfig = sadece iwif baglanti bilgilerini gosterir
+iwconfig wlan0
+
+
+
+
+-------MAC ADRESI DEGISIM----------------------
+ifconfig wlan0 down = mac adresini degismek istedigimizde ...
+macchager --help = bu komuttaki yardim sekmesi
+macchanger --random wlan0 = random new mac addres for wifi kart
+-----------------------------------------------
+
+
+-------MONITOR MODA GECIS-----------------------
+1.	airmon-ng start wlan0 = wifi kart monitor modu aktif etme
+	airmon-ng stop wlan0mon=managed moda donus
+
+2.	ifconfig wlan0 down
+	iwconfig wlan0 mode monitor
+	ifconfig wlan0 up
+-------------------------------------------------
+
+-------airodump framework-------------------------
+airodump-ng wlan0 veya airodump-ng wlan0mon:etraftaki modemlerin mac adreslerive..
+	BSSID  : Mac adresi
+	PWR    : -1 en yakin -55 daha uzak
+	Beacons: Sinyallerle alakali
+	Data   : Elimizde olan kullanabilecegimiz datalar
+	CH     : Kanal numarasi
+	ENC    : Encryiption (Sifreleme turu)
+	Cipher : Decryption modeli
+	ESSID  : Networkun kendi adi(modem ismi)
+airodumg-ng --channel (1..12) --bssid (mac addr) --write (islemlerin kaydedilecegi dosya ismi) wlan0/wlan0mon ==> Bu modeme bagli olan cihazlarin listesi gorunur ve ismi verilen dosyaya bilgiler kaydedilir. Bu bilgiler cat uzantili dosyadadir ve wireshark programi kullanilarak goruntulenebilir. Eger bilgileri sadece gormek istiyorsak kaydetmek istemiyorsak write ve dosya ismi olan bolum koddan silinmelidir.
+ Not : Parantezler yok oranin icine belirlenen degerler girilecek
+----------------------------------------------------
+
+
+--------aireplay framework--------------------------
+----Deauthentication Attack
+aireplay-ng --deauth (0-10000000) -a (saldiracagimiz agin bssid soldaki) -c (saldirilacak hedefin bssid saginda modemin) (interface yani)wlan0/wlanomon
+Not : Parantezler yok oranin icine belirlenen degerler girilecek
+Not: --deauthtan sonra girilen deger kac deautheanticatiton package gonderecegimizi belirler. Kisa sureligine koparmak istiyorsak 5 gibi kucuk bir deger yazilabilir.Surekl koparmak istiyorsak onbin gibi abarti bir sayi yazilabilir. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

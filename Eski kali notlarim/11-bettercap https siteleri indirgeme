@@ -1,0 +1,9 @@
+HTTPs siteleri ve HSTS siteleri httpye indirme
+
+tum islemlerizi yaptiktan sonra( 
+1- net.probe
+2- arp.spoof
+3- net.sniff )
+
+hsts yazip taba basiyoruz (hstshijack/hstshijack yazacaktir)
+ve basliyoruz :)

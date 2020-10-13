@@ -1,0 +1,14 @@
+-------------Kullanicinin ipsini almak---------------
+
+----------1.netdiscover ile IP almak--------------------------
+netdiscover -i wlan0 -r 10.0.2.0/24
+Not:  Netdiscover = Agi kesfet
+     -i =interface(wlan0 eth0)
+     -r = range yani hangi ip araliginda olacagi
+
+Not:Genelde ip sonu .1 olanlar (10.0.2.1) modemlerdir.
+----------------------------------------------------
+
+------------------2. nmap ile IP almak----------------
+Not: zenmap uygulamasi nmap frameworkunu daha kolay kullanabilmemiz icin gelistirilmistir.Terminale sadece zenmap yazarak calistirabirz.
+Sadece zenmap icerisinde sol uste range ip girip scan yapmamiz yeterli

